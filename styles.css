@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #74ebd5, #9face6);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  .calculator {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    width: 320px;
+    max-width: 90vw;
+  }
+  
+  #display {
+    width: 100%;
+    font-size: 24px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    text-align: right;
+    overflow-x: auto;
+  }
+  
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  
+  button {
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    background: #f0f0f0;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  button:hover {
+    background: #dcdcdc;
+  }
+  
+  .nds-section,
+  .currency-section {
+    margin-top: 25px;
+  }
+  
+  .nds-section h3,
+  .currency-section h3 {
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .nds-section label {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .nds-buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .nds-buttons button {
+    flex: 1;
+    min-width: 80px;
+    font-size: 14px;
+  }
+  
+  .currency-section input,
+  .currency-section select {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+  }
+  
+  .currency-section .selectors {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .currency-section select {
+    flex: 1;
+  }
+  
+  .currency-section span {
+    font-size: 18px;
+    padding: 0 5px;
+  }
+  
+  .currency-section button {
+    width: 100%;
+    background: #4CAF50;
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .currency-section button:hover {
+    background: #45a049;
+  }
+  
+  #conversionResult {
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+    word-wrap: break-word;
+  }
+  .result-box {
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    white-space: pre-line;
+    color: #333;
+  }
+  

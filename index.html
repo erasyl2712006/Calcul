@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Калькулятор</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="display" readonly>
+
+    <div class="buttons">
+      <button onclick="backspace()">←</button>
+      <button onclick="append('7')">7</button>
+      <button onclick="append('8')">8</button>
+      <button onclick="append('9')">9</button>
+      <button onclick="append('/')">÷</button>
+
+      <button onclick="append('4')">4</button>
+      <button onclick="append('5')">5</button>
+      <button onclick="append('6')">6</button>
+      <button onclick="append('*')">×</button>
+
+      <button onclick="append('1')">1</button>
+      <button onclick="append('2')">2</button>
+      <button onclick="append('3')">3</button>
+      <button onclick="append('-')">−</button>
+
+      <button onclick="append('0')">0</button>
+      <button onclick="append('.')">.</button>
+      <button onclick="append('%')">%</button>
+      <button onclick="append('+')">+</button>
+
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="calculate()">=</button>
+    </div>
+
+    <div class="nds-section">
+        <h3>НДС:</h3>
+      
+        <label>
+          <input type="radio" name="ndsMode" value="with" checked>
+          Сумма с НДС
+        </label>
+        <label>
+          <input type="radio" name="ndsMode" value="without">
+          Сумма без НДС
+        </label>
+      
+        <div class="nds-buttons">
+          <button onclick="calculateNDS(0)">0%</button>
+          <button onclick="calculateNDS(10)">10%</button>
+          <button onclick="calculateNDS(20)">20%</button>
+        </div>
+      
+        <div id="ndsResult" class="result-box"></div>
+      </div>      
+      
+
+    <div class="currency-section">
+      <h3>Конвертер валют</h3>
+      <input type="number" id="amount" placeholder="Сумма">
+      <div class="selectors">
+        <select id="fromCurrency"></select>
+        <span>→</span>
+        <select id="toCurrency"></select>
+      </div>
+      <button onclick="convertCurrency()">Конвертировать</button>
+      <div id="conversionResult"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
