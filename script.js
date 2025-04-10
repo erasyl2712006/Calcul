@@ -40,7 +40,7 @@ function append(char) {
   }
 
   if (isOperator(char)) {
-    if (value === '' && char !== '-') return; 
+    if (value === '' && char !== '-') return;
     if (isOperator(lastChar)) {
       display.value = value.slice(0, -1) + char;
     } else {
@@ -53,15 +53,16 @@ function append(char) {
 function clearDisplay() {
   display.value = '';
 }
+
 function backspace() {
-    if (display.value === 'Введите число') {
-      display.value = '';
-      return;
-    }
-  
-    display.value = display.value.slice(0, -1);
+  if (display.value === 'Введите число') {
+    display.value = '';
+    return;
   }
-  
+
+  display.value = display.value.slice(0, -1);
+}
+
 function calculate() {
   try {
     let expr = display.value.replace(/(\d+(\.\d+)?)%/g, '($1/100)');
@@ -81,28 +82,28 @@ display.addEventListener('keydown', (e) => {
   const char = e.key;
 
   if (char === 'Enter') {
-    calculate();
     e.preventDefault();
+    calculate();
     return;
   }
 
-  if (
-    isDigit(char) ||
-    isOperator(char) ||
-    char === '.' ||
-    char === '%' ||
-    char === 'Backspace' ||
-    char === 'Delete' ||
-    char === 'ArrowLeft' ||
-    char === 'ArrowRight'
-  ) {
-    if (display.value === 'Введите число' && isDigit(char)) {
-      display.value = '';
-    }
+  if (char === 'Backspace') {
+    e.preventDefault();
+    backspace();
     return;
   }
 
-  e.preventDefault(); 
+  if (char === 'Delete' || char.startsWith('Arrow')) {
+    return;
+  }
+
+  if (isDigit(char) || isOperator(char) || char === '.' || char === '%') {
+    e.preventDefault();
+    append(char);
+    return;
+  }
+
+  e.preventDefault();
 });
 
 function calculateNDS(rate) {
@@ -186,4 +187,7 @@ async function convertCurrency() {
   }
 }
 
-window.addEventListener('DOMContentLoaded', loadCurrencies);
+window.addEventListener('DOMContentLoaded', () => {
+  loadCurrencies();
+  display.focus(); // Автофокус при загрузке
+});
